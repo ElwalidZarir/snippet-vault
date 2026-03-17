@@ -5,6 +5,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import org.com.snippetvault.dto.SnippetDTO
 import java.util.UUID
 
 @Entity
@@ -15,4 +16,10 @@ class Snippet {
 	
 	@Column(name =  "code")
 	var code: String? = null
+	
+	fun toDto(): SnippetDTO {
+		return SnippetDTO(
+			this.code
+		)
+	}
 }
